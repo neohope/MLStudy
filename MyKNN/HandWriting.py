@@ -23,7 +23,7 @@ def img2vector(filename):
 def handwritingClassTest():
     # 导入训练数据
     hwLabels = []
-    trainingFileList = listdir('../Data/knn/handwriting/trainingDigits')
+    trainingFileList = listdir('../Data/KNN/handwriting/trainingDigits')
     m = len(trainingFileList)
     trainingMat = zeros((m, 1024))
     for i in range(m):
@@ -32,17 +32,17 @@ def handwritingClassTest():
         classNumStr = int(fileStr.split('_')[0])
         hwLabels.append(classNumStr)
         # 将 32*32的矩阵->1*1024的矩阵
-        trainingMat[i, :] = img2vector('../Data/knn/handwriting/trainingDigits/%s' %fileNameStr)
+        trainingMat[i, :] = img2vector('../Data/KNN/handwriting/trainingDigits/%s' %fileNameStr)
 
     # 导入测试数据
-    testFileList = listdir('../Data/knn/handwriting/testDigits')
+    testFileList = listdir('../Data/KNN/handwriting/testDigits')
     errorCount = 0.0
     mTest = len(testFileList)
     for i in range(mTest):
         fileNameStr = testFileList[i]
         fileStr = fileNameStr.split('.')[0]
         classNumStr = int(fileStr.split('_')[0])
-        vectorUnderTest = img2vector('../data/knn/handwriting/testDigits/%s' %fileNameStr)
+        vectorUnderTest = img2vector('../data/KNN/handwriting/testDigits/%s' %fileNameStr)
         classifierResult = ClassifyCNN.classify0(vectorUnderTest, trainingMat, hwLabels, 3)
         print("the classifier came back with: %d, the real answer is: %d" % (classifierResult, classNumStr))
         if (classifierResult != classNumStr): errorCount += 1.0

@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+"""
+利用KNN进行分类处理
+判断约会对象是否合适
+"""
+
 from numpy import *
 import matplotlib.pyplot as plt
 from MyKNN import ClassifyCNN

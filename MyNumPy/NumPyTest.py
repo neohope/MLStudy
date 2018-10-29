@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # coding:utf-8
 
-'''
+"""
 验证numpy安装没有问题
-'''
+"""
 
 from numpy import random, mat, eye
 
-'''
+"""
 # NumPy 矩阵和数组的区别
 NumPy存在2中不同的数据类型:
     1. 矩阵 matrix
@@ -17,7 +17,7 @@ NumPy存在2中不同的数据类型:
 不同点：
     1. 2个数据类型上执行相同的数据运算可能得到不同的结果。
     2. NumPy函数库中的 matrix 与 MATLAB中 matrices 等价。
-'''
+"""
 
 # 生成一个 4*4 的随机数组
 randArray = random.rand(4, 4)
@@ -25,11 +25,11 @@ randArray = random.rand(4, 4)
 # 转化关系， 数组转化为矩阵
 randMat = mat(randArray)
 
-'''
+"""
 .I 表示对矩阵求逆
 .T 表示对矩阵转置
 .A 返回矩阵基于的数组
-'''
+"""
 
 invRandMat = randMat.I
 TraRandMat = randMat.T

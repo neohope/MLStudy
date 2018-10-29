@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # coding: utf-8
 
+"""
+利用KNN进行分类处理
+进行手写识别
+"""
+
 from numpy import *
 from os import listdir
 from MyKNN import ClassifyCNN

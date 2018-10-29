@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # coding: utf-8
 
+"""
+利用KNN进行分类处理
+判断是哪一类电影
+"""
+
 from numpy import *
 from MyKNN import ClassifyCNN
 

@@ -13,6 +13,7 @@ How to build
  ```shell
     pip install numpy
     pip install matplotlib
+    pip install sklearn
 ```
 
 3. use IDE like pycharm to open the project

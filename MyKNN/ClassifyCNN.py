@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # coding: utf-8
 
+"""
+工具类
+利用KNN进行分类处理
+"""
+
 from numpy import *
 from collections import Counter
 import operator

@@ -7,10 +7,13 @@ https://github.com/apachecn/AiLearning
 How to build
 ============
 1. install pythoy 3.5+
+
 2. install packages
 
+ ```shell
     pip install numpy
     pip install matplotlib
+```
 
 3. use IDE like pycharm to open the project
 

@@ -11,7 +11,7 @@ How to build
 2. install packages
 
  ```shell
-    pip install
+    pip install feedparser
     pip install matplotlib
     pip install numpy
     pip install pickle

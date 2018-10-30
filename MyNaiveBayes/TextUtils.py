@@ -1,10 +1,14 @@
-import re
-import jieba.posseg as postag
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 
 """
 工具类
 分词及集合类型转换
 """
+
+import re
+import jieba.posseg as postag
+
 
 def text_parse_en(big_str_en):
     """

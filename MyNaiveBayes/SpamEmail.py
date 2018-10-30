@@ -42,14 +42,14 @@ def spam_test():
 
     # 随机抽取10封邮件做测试数据
     test_set = [int(num) for num in random.sample(range(50), 10)]
+
+    # 利用剩余40封邮件训练模型
     training_set = list(set(range(50)) - set(test_set))
     training_mat = []
     training_class = []
     for doc_index in training_set:
         training_mat.append(TextUtils.set_of_words2vec(vocab_list, doc_list[doc_index]))
         training_class.append(class_list[doc_index])
-
-    # 利用剩余40封邮件训练模型
     p0v, p1v, p_spam = ClassifNB.train_naive_bayes(
         np.array(training_mat),
         np.array(training_class)

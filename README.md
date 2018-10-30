@@ -12,6 +12,7 @@ How to build
 
  ```shell
     pip install feedparser
+    pip install jieba
     pip install matplotlib
     pip install numpy
     pip install pickle

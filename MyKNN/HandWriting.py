@@ -8,7 +8,7 @@
 
 from numpy import *
 from os import listdir
-from MyKNN import ClassifyCNN
+from MyKNN import ClassifyKNN
 
 def img2vector(filename):
     """
@@ -48,7 +48,7 @@ def handwritingClassTest():
         fileStr = fileNameStr.split('.')[0]
         classNumStr = int(fileStr.split('_')[0])
         vectorUnderTest = img2vector('../data/KNN/handwriting/testDigits/%s' %fileNameStr)
-        classifierResult = ClassifyCNN.classify0(vectorUnderTest, trainingMat, hwLabels, 3)
+        classifierResult = ClassifyKNN.classify0(vectorUnderTest, trainingMat, hwLabels, 3)
         print("the classifier came back with: %d, the real answer is: %d" % (classifierResult, classNumStr))
         if (classifierResult != classNumStr): errorCount += 1.0
     print("\nthe total number of errors is: %d" % errorCount)

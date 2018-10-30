@@ -7,7 +7,7 @@
 """
 
 from numpy import *
-from MyKNN import ClassifyCNN
+from MyKNN import ClassifyKNN
 
 def createDataSet():
     """
@@ -26,8 +26,8 @@ def testPoints():
     group, labels = createDataSet()
     print(str(group))
     print(str(labels))
-    print(ClassifyCNN.classify0([0.1, 0.1], group, labels, 3))
-    print(ClassifyCNN.classify1([0.1, 0.1], group, labels, 3))
+    print(ClassifyKNN.classify0([0.1, 0.1], group, labels, 3))
+    print(ClassifyKNN.classify1([0.1, 0.1], group, labels, 3))
 
 if __name__ == '__main__':
     testPoints()

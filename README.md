@@ -11,12 +11,17 @@ How to build
 2. install packages
 
  ```shell
-    pip install numpy
+    pip install
     pip install matplotlib
+    pip install numpy
+    pip install pickle
+    pip install pydotplus
     pip install sklearn
 ```
 
-3. use IDE like pycharm to open the project
+3. install GraphViz
+
+4. use IDE like pycharm to open the project
 
 Reference
 =========

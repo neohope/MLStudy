@@ -18,6 +18,7 @@ How to build
     pip install pickle
     pip install pydotplus
     pip install sklearn
+    pip install tensorflow
 ```
 
 3. install GraphViz

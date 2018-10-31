@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# coding:utf-8
+# -*- coding:utf-8 -*-
 
 """
 验证numpy安装没有问题

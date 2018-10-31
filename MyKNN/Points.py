@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# coding: utf-8
+# -*- coding:utf-8 -*-
 
 """
 利用KNN进行分类处理

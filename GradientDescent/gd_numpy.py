@@ -21,6 +21,10 @@ def createData(points):
     return X,Y
 
 
+def predict(X2,W):
+    return X2.dot(W)
+
+
 def gradient_descent(X2, Y, lrate, epochs, W):
     """
     梯度下降
@@ -31,7 +35,7 @@ def gradient_descent(X2, Y, lrate, epochs, W):
 
     for i in range(epochs):
         # 计算误差
-        predictedY = X2.dot(W)
+        predictedY = predict(X2,W)
         error = (predictedY - Y) ** 2
         total_error = np.sum(error)
 
@@ -79,5 +83,5 @@ if __name__ == '__main__':
 
     #展示拟合结果
     plt.plot(X, Y, 'ro')
-    plt.plot(X, X2.dot(W), 'b')
+    plt.plot(X, predict(X2, W), 'b')
     plt.show()

@@ -21,7 +21,10 @@ def createData(points):
     return X,Y
 
 
-def GD(X2, Y, lrate, epochs, W):
+def gradient_descent(X2, Y, lrate, epochs, W):
+    """
+    梯度下降
+    """
     total_expected_error = 0
     errorlist = []
     finalepoch = 0
@@ -66,7 +69,7 @@ if __name__ == '__main__':
     W = np.random.uniform(size=X2.shape[1], )
 
     # 训练5000次
-    total_error, finalepoch = GD(X2, Y, 0.001, 5000, W)
+    total_error, finalepoch = gradient_descent(X2, Y, 0.001, 5000, W)
 
     # 展示错误下降情况
     plt.plot(range(finalepoch), total_error)

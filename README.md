@@ -2,7 +2,7 @@ What is this project about
 =========
 This is just a project of ML demos. Most demos are from here :
 https://github.com/apachecn/AiLearning
-
+https://github.com/Madhu009/Deep-math-machine-learning.ai
 
 How to build
 ============
@@ -28,5 +28,5 @@ How to build
 Reference
 =========
 https://github.com/apachecn/AiLearning
-
+https://medium.com/deep-math-machine-learning-ai
 

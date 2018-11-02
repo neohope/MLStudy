@@ -8,7 +8,7 @@
 
 from numpy import *
 from os import listdir
-from MyKNN import ClassifyKNN
+from MyKNearestNeighbors import ClassifyKNN
 
 def img2vector(filename):
     """

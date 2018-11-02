@@ -8,7 +8,7 @@
 
 from numpy import *
 import matplotlib.pyplot as plt
-from MyKNN import ClassifyKNN
+from MyKNearestNeighbors import ClassifyKNN
 
 
 def file2matrix(filename):

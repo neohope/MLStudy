@@ -6,9 +6,12 @@
 进行手写识别
 """
 
-from numpy import *
 from os import listdir
-from MyKNearestNeighbors import ClassifyKNN
+
+from numpy import *
+
+from Supervised.Classification.KNearestNeighbors import ClassifyKNN
+
 
 def img2vector(filename):
     """

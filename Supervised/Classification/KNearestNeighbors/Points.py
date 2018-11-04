@@ -7,7 +7,9 @@
 """
 
 from numpy import *
-from MyKNearestNeighbors import ClassifyKNN
+
+from Supervised.Classification.KNearestNeighbors import ClassifyKNN
+
 
 def createDataSet():
     """

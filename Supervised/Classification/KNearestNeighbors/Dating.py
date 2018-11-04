@@ -6,9 +6,10 @@
 判断约会对象是否合适
 """
 
-from numpy import *
 import matplotlib.pyplot as plt
-from MyKNearestNeighbors import ClassifyKNN
+from numpy import *
+
+from Supervised.Classification.KNearestNeighbors import ClassifyKNN
 
 
 def file2matrix(filename):

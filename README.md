@@ -1,12 +1,29 @@
-What is this project about
-=========
+# About
 This is just a project of ML demos. Most demos are from here :
 https://github.com/apachecn/AiLearning
 https://github.com/Madhu009/Deep-math-machine-learning.ai
 
-How to build
-============
-1. install pythoy 3.5+
+## Regression
+LeastSquare
+GradientDescent
+NeuralNetwork
+
+## Classification
+KNearestNeighbors
+NaiveBayes
+LogisticRegression
+DecisionTree
+SupportVectorMachines
+RandomForest
+AdaBoost
+
+## Clustering
+K-Means
+
+
+#How to build
+
+1. install pythoy 3.6+
 
 2. install packages
 
@@ -25,8 +42,9 @@ How to build
 
 4. use IDE like pycharm to open the project
 
-Reference
-=========
+
+# Reference
+
 https://github.com/apachecn/AiLearning
 https://medium.com/deep-math-machine-learning-ai
 

@@ -6,8 +6,10 @@
 """
 
 import copy
-from MyDecisionTree import ClassifyDT
+
 from MyDecisionTree import DecisionTreePlot
+
+from Supervised.Classification.DecisionTree import ClassifyDT
 
 
 def createDataSet():

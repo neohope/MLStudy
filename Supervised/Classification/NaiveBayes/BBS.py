@@ -6,8 +6,9 @@
 """
 
 import numpy as np
-from MyNaiveBayes import ClassifNB
 from MyNaiveBayes import TextUtils
+
+from Supervised.Classification.NaiveBayes import ClassifNB
 
 
 def load_data_set():

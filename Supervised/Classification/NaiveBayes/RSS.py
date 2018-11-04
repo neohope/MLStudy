@@ -5,12 +5,14 @@
 查找高频词汇
 """
 
-from operator import itemgetter
 import random
-import numpy as np
+from operator import itemgetter
+
 import feedparser
-from MyNaiveBayes import ClassifNB
+import numpy as np
 from MyNaiveBayes import TextUtils
+
+from Supervised.Classification.NaiveBayes import ClassifNB
 
 
 def calc_most_freq(vocab_list, full_text):

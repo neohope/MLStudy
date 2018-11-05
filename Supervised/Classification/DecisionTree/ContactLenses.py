@@ -21,6 +21,9 @@ def contactLensesTest():
     # 数据的Labels
     lensesLabels = ['age', 'prescript', 'astigmatic', 'tearRate']
 
+    print(lenses)
+    print(lensesLabels)
+
     # 构造预测隐形眼镜的决策树
     lensesTree = ClassifyDT.createTree(lenses, lensesLabels)
 

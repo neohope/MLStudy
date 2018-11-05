@@ -1,0 +1,15 @@
+Outlook,Humidity,Windy,Play
+Rainy,High,FALSE,No
+Rainy,High,TRUE,No
+Overcast,High,FALSE,Yes
+Sunny,High,FALSE,Yes
+Sunny,Normal,FALSE,Yes
+Sunny,Normal,TRUE,No
+Overcast,Normal,TRUE,Yes
+Rainy,High,FALSE,No
+Rainy,Normal,FALSE,Yes
+Sunny,Normal,FALSE,Yes
+Rainy,Normal,TRUE,Yes
+Overcast,High,TRUE,Yes
+Overcast,Normal,FALSE,Yes
+Sunny,High,TRUE,No

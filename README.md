@@ -28,6 +28,7 @@ K-Means
 2. install packages
 
  ```shell
+    pip install bs4
     pip install feedparser
     pip install jieba
     pip install matplotlib

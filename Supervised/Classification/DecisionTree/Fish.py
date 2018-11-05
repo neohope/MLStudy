@@ -7,8 +7,7 @@
 
 import copy
 
-from MyDecisionTree import DecisionTreePlot
-
+from Supervised.Classification.DecisionTree import DecisionTreePlot
 from Supervised.Classification.DecisionTree import ClassifyDT
 
 

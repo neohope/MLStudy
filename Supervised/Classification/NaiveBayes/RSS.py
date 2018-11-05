@@ -7,11 +7,9 @@
 
 import random
 from operator import itemgetter
-
 import feedparser
 import numpy as np
-from MyNaiveBayes import TextUtils
-
+from Supervised.Classification.NaiveBayes import TextUtils
 from Supervised.Classification.NaiveBayes import ClassifNB
 
 

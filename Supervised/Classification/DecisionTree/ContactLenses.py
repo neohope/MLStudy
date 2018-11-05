@@ -5,8 +5,7 @@
 预测隐形眼镜类型
 """
 
-from MyDecisionTree import DecisionTreePlot
-
+from Supervised.Classification.DecisionTree import DecisionTreePlot
 from Supervised.Classification.DecisionTree import ClassifyDT
 
 

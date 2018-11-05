@@ -8,8 +8,7 @@
 import random
 
 import numpy as np
-from MyNaiveBayes import TextUtils
-
+from Supervised.Classification.NaiveBayes import TextUtils
 from Supervised.Classification.NaiveBayes import ClassifNB
 
 

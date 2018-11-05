@@ -16,7 +16,7 @@ def contactLensesTest():
     """
 
     # 加载隐形眼镜数据文件
-    fr = open('../Data/DecisionTree/lenses/lenses.txt')
+    fr = open('../../../Data/DecisionTree/lenses/lenses.txt')
     lenses = [inst.strip().split('\t') for inst in fr.readlines()]
 
     # 数据的Labels

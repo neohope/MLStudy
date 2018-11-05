@@ -86,7 +86,7 @@ def datingClassTest():
     """
 
     # 从文件中加载数据
-    datingDataMat, datingLabels = file2matrix('../Data/KNN/dating/dating.txt')
+    datingDataMat, datingLabels = file2matrix('../../../Data/KNN/dating/dating.txt')
     draw(datingDataMat, datingLabels)
 
     # 归一化数据
@@ -112,7 +112,7 @@ def classifyPerson():
     percentTats = 10
     ffMiles = 10000
     iceCream = 0.5
-    datingDataMat, datingLabels = file2matrix('../Data/KNN/dating/dating.txt')
+    datingDataMat, datingLabels = file2matrix('../../../Data/KNN/dating/dating.txt')
     normMat, ranges, minVals = autoNorm0(datingDataMat)
     inArr = array([ffMiles, percentTats, iceCream])
     classifierResult = ClassifyKNN.classify0((inArr - minVals) / ranges, normMat, datingLabels, 3)

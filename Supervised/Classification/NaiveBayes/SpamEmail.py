@@ -25,17 +25,17 @@ def spam_test():
     for i in range(1, 26):
         # 添加垃圾邮件信息
         try:
-            words = TextUtils.text_parse(open('../Data/NaiveBayes/email/spam/{}.txt'.format(i)).read())
+            words = TextUtils.text_parse(open('../../../Data/NaiveBayes/email/spam/{}.txt'.format(i)).read())
         except:
-            words = TextUtils.text_parse(open('../Data/NaiveBayes/email/spam/{}.txt'.format(i), encoding='Windows 1252').read())
+            words = TextUtils.text_parse(open('../../../Data/NaiveBayes/email/spam/{}.txt'.format(i), encoding='Windows 1252').read())
         doc_list.append(words)
         class_list.append(1)
 
         # 添加非垃圾邮件
         try:
-            words = TextUtils.text_parse(open('../Data/NaiveBayes/email/ham/{}.txt'.format(i)).read())
+            words = TextUtils.text_parse(open('../../../Data/NaiveBayes/email/ham/{}.txt'.format(i)).read())
         except:
-            words = TextUtils.text_parse(open('../Data/NaiveBayes/email/ham/{}.txt'.format(i), encoding='Windows 1252').read())
+            words = TextUtils.text_parse(open('../../../Data/NaiveBayes/email/ham/{}.txt'.format(i), encoding='Windows 1252').read())
         doc_list.append(words)
         class_list.append(0)
 

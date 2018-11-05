@@ -23,7 +23,7 @@ def createDataSet():
     # label(胖瘦)
     data = []
     labels = []
-    with open("../Data/DecisionTree/fat/fat.txt") as ifile:
+    with open("../../../Data/DecisionTree/fat/fat.txt") as ifile:
         for line in ifile:
             tokens = line.strip().split(' ')
             data.append([float(tk) for tk in tokens[:-1]])

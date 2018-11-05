@@ -40,10 +40,15 @@ def create_model():
     创建模型
     """
     model = Sequential()
+
+    # 52.59%的准确率(3, 32, 32)
     #model.add(Conv2D(32, (3, 3), activation="relu", input_shape=(3, 32, 32), padding = "same", kernel_constraint=maxnorm(3)))
     #model.add(Conv2D(32, (3, 3), activation="relu", input_shape=(3, 32, 32), padding="same", kernel_constraint=maxnorm(3)))
+
+    # 68.28%的准确率(32, 32, 3)
     model.add(Conv2D(32, (3, 3), activation="relu", input_shape=(32, 32, 3), padding = "same", kernel_constraint=maxnorm(3)))
     model.add(Conv2D(32, (3, 3), activation="relu", input_shape=(32, 32, 3), padding="same", kernel_constraint=maxnorm(3)))
+
     # 防止过拟合
     # model.add(Dropout(0.2))
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
@@ -81,6 +86,7 @@ if __name__ == '__main__':
 
     # 模型准群率评估
     # 52.59%的准确率(3, 32, 32)
+    # 68.28%的准确率(32, 32, 3)
     scores = model.evaluate(X_test, Y_test, verbose=0)
     print("Final Accuracy: %.2f%%" % (scores[1]*100))
 

@@ -8,7 +8,7 @@ matrix
 
 import numpy as np
 import matplotlib.pylab as plt
-from Supervised.Regression.LinearRegression import utils
+from Supervised.Regression.LinearRegression import linear_regression_utils
 
 
 def stand_least_square(xMat, yMat):
@@ -39,7 +39,7 @@ def stand_least_square(xMat, yMat):
 
 if __name__ == '__main__':
     # 数据准备
-    X, Y = utils.loadDataSet("../../../Data/Regression/data.txt")
+    X, Y = linear_regression_utils.load_data("../../../Data/LinearRegression/data.txt")
     xMat = np.mat(X)
     yMat = np.mat(Y)
 

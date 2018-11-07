@@ -9,7 +9,7 @@
 import matplotlib.pyplot as plt
 from numpy import *
 
-from Supervised.Classification.KNearestNeighbors import ClassifyKNN
+from Supervised.Classification.KNearestNeighbors import classify_knn
 
 
 def file2matrix(filename):
@@ -101,7 +101,7 @@ def datingClassTest():
     errorCount = 0.0
     for i in range(numTestVecs):
         # 对数据测试
-        classifierResult = ClassifyKNN.classify0(normMat[i, :], normMat[numTestVecs:m, :], datingLabels[numTestVecs:m], 3)
+        classifierResult = classify_knn.classify0(normMat[i, :], normMat[numTestVecs:m, :], datingLabels[numTestVecs:m], 3)
         print("the classifier came back with: %d, the real answer is: %d" % (classifierResult, datingLabels[i]))
         if (classifierResult != datingLabels[i]): errorCount += 1.0
     print("the total error rate is: %f" %(errorCount/float(numTestVecs)))
@@ -115,7 +115,7 @@ def classifyPerson():
     datingDataMat, datingLabels = file2matrix('../../../Data/KNN/dating/dating.txt')
     normMat, ranges, minVals = autoNorm0(datingDataMat)
     inArr = array([ffMiles, percentTats, iceCream])
-    classifierResult = ClassifyKNN.classify0((inArr - minVals) / ranges, normMat, datingLabels, 3)
+    classifierResult = classify_knn.classify0((inArr - minVals) / ranges, normMat, datingLabels, 3)
     print("You will probably like this person: ", resultList[classifierResult - 1])
 
 if __name__ == '__main__':

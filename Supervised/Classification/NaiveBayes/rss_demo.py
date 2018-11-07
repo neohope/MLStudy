@@ -9,8 +9,8 @@ import random
 from operator import itemgetter
 import feedparser
 import numpy as np
-from Supervised.Classification.NaiveBayes import TextUtils
-from Supervised.Classification.NaiveBayes import ClassifNB
+from Supervised.Classification.NaiveBayes import text_utils
+from Supervised.Classification.NaiveBayes import classif_naive_bayes
 
 
 def calc_most_freq(vocab_list, full_text):
@@ -33,15 +33,15 @@ def local_words(feed1, feed0):
     full_text = []
     min_len = min(len(feed0), len(feed1))
     for i in range(min_len):
-        word_list = TextUtils.text_parse_cn(feed1['entries'][i]['summary'])
+        word_list = text_utils.text_parse_cn(feed1['entries'][i]['summary'])
         doc_list.append(word_list)
         full_text.extend(word_list)
         class_list.append(1)
-        word_list = TextUtils.text_parse_cn(feed0['entries'][i]['summary'])
+        word_list = text_utils.text_parse_cn(feed0['entries'][i]['summary'])
         doc_list.append(word_list)
         full_text.extend(word_list)
         class_list.append(0)
-    vocab_list = TextUtils.create_vocab_list(doc_list)
+    vocab_list = text_utils.create_vocab_list(doc_list)
 
     # 去掉高频词
     top30words = calc_most_freq(vocab_list, full_text)
@@ -57,9 +57,9 @@ def local_words(feed1, feed0):
     training_mat = []
     training_class = []
     for doc_index in training_set:
-        training_mat.append(TextUtils.bag_words2vec(vocab_list, doc_list[doc_index]))
+        training_mat.append(text_utils.bag_words2vec(vocab_list, doc_list[doc_index]))
         training_class.append(class_list[doc_index])
-    p0v, p1v, p_spam = ClassifNB.train_naive_bayes(
+    p0v, p1v, p_spam = classif_naive_bayes.train_naive_bayes(
         np.array(training_mat),
         np.array(training_class)
     )
@@ -67,8 +67,8 @@ def local_words(feed1, feed0):
     # 测试3条数据
     error_count = 0
     for doc_index in test_set:
-        word_vec = TextUtils.bag_words2vec(vocab_list, doc_list[doc_index])
-        if ClassifNB.classify_naive_bayes(
+        word_vec = text_utils.bag_words2vec(vocab_list, doc_list[doc_index])
+        if classif_naive_bayes.classify_naive_bayes(
             np.array(word_vec),
             p0v,
             p1v,

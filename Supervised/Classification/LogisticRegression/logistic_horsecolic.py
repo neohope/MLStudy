@@ -6,7 +6,7 @@
 """
 
 import numpy as np
-from Supervised.Classification.LogisticRegression import ClassifyLogistic
+from Supervised.Classification.LogisticRegression import classify_logistic
 
 def load_data():
     """
@@ -44,13 +44,13 @@ def colic_test(training_set, training_labels, test_set, test_labels):
     训练
     """
     # 随机梯度下降算法
-    train_weights = ClassifyLogistic.stoc_grad_ascent(np.array(training_set), training_labels, 500)
+    train_weights = classify_logistic.stoc_grad_ascent(np.array(training_set), training_labels, 500)
 
     # 测试效果
     error_count = 0
     num_test_vec = 0.0
     for ts in test_set:
-        if int(ClassifyLogistic.classify_vector(np.array(ts), train_weights)) != test_labels[int(num_test_vec)]:
+        if int(classify_logistic.classify_vector(np.array(ts), train_weights)) != test_labels[int(num_test_vec)]:
             error_count += 1
         num_test_vec += 1
 

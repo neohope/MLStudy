@@ -7,8 +7,8 @@
 
 import copy
 
-from Supervised.Classification.DecisionTree import DecisionTreePlot
-from Supervised.Classification.DecisionTree import ClassifyDT
+from Supervised.Classification.DecisionTree import decision_tree_plot
+from Supervised.Classification.DecisionTree import classify_decision_tree
 
 
 def createDataSet():
@@ -35,14 +35,14 @@ def fishTest():
     myDat, labels = createDataSet()
 
     # 创建决策树
-    myTree = ClassifyDT.createTree(myDat, copy.deepcopy(labels))
+    myTree = classify_decision_tree.createTree(myDat, copy.deepcopy(labels))
     print(myTree)
 
     # 判断[1, 1]是否是鱼
-    print(ClassifyDT.classify(myTree, labels, [1, 1]))
+    print(classify_decision_tree.classify(myTree, labels, [1, 1]))
 
     # 可视化展现
-    DecisionTreePlot.createPlot(myTree)
+    decision_tree_plot.createPlot(myTree)
 
 
 if __name__ == "__main__":

@@ -8,8 +8,8 @@
 import random
 
 import numpy as np
-from Supervised.Classification.NaiveBayes import TextUtils
-from Supervised.Classification.NaiveBayes import ClassifNB
+from Supervised.Classification.NaiveBayes import text_utils
+from Supervised.Classification.NaiveBayes import classif_naive_bayes
 
 
 def spam_test():
@@ -24,22 +24,22 @@ def spam_test():
     for i in range(1, 26):
         # 添加垃圾邮件信息
         try:
-            words = TextUtils.text_parse(open('../../../Data/NaiveBayes/email/spam/{}.txt'.format(i)).read())
+            words = text_utils.text_parse(open('../../../Data/NaiveBayes/email/spam/{}.txt'.format(i)).read())
         except:
-            words = TextUtils.text_parse(open('../../../Data/NaiveBayes/email/spam/{}.txt'.format(i), encoding='Windows 1252').read())
+            words = text_utils.text_parse(open('../../../Data/NaiveBayes/email/spam/{}.txt'.format(i), encoding='Windows 1252').read())
         doc_list.append(words)
         class_list.append(1)
 
         # 添加非垃圾邮件
         try:
-            words = TextUtils.text_parse(open('../../../Data/NaiveBayes/email/ham/{}.txt'.format(i)).read())
+            words = text_utils.text_parse(open('../../../Data/NaiveBayes/email/ham/{}.txt'.format(i)).read())
         except:
-            words = TextUtils.text_parse(open('../../../Data/NaiveBayes/email/ham/{}.txt'.format(i), encoding='Windows 1252').read())
+            words = text_utils.text_parse(open('../../../Data/NaiveBayes/email/ham/{}.txt'.format(i), encoding='Windows 1252').read())
         doc_list.append(words)
         class_list.append(0)
 
     # 创建词汇表
-    vocab_list = TextUtils.create_vocab_list(doc_list)
+    vocab_list = text_utils.create_vocab_list(doc_list)
 
     # 随机抽取10封邮件做测试数据
     test_set = [int(num) for num in random.sample(range(50), 10)]
@@ -49,9 +49,9 @@ def spam_test():
     training_mat = []
     training_class = []
     for doc_index in training_set:
-        training_mat.append(TextUtils.set_of_words2vec(vocab_list, doc_list[doc_index]))
+        training_mat.append(text_utils.set_of_words2vec(vocab_list, doc_list[doc_index]))
         training_class.append(class_list[doc_index])
-    p0v, p1v, p_spam = ClassifNB.train_naive_bayes(
+    p0v, p1v, p_spam = classif_naive_bayes.train_naive_bayes(
         np.array(training_mat),
         np.array(training_class)
     )
@@ -59,8 +59,8 @@ def spam_test():
     # 测试10封邮件
     error_count = 0
     for doc_index in test_set:
-        word_vec = TextUtils.set_of_words2vec(vocab_list, doc_list[doc_index])
-        if ClassifNB.classify_naive_bayes(
+        word_vec = text_utils.set_of_words2vec(vocab_list, doc_list[doc_index])
+        if classif_naive_bayes.classify_naive_bayes(
             np.array(word_vec),
             p0v,
             p1v,

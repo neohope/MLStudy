@@ -7,7 +7,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-from Supervised.Classification.LogisticRegression import ClassifyLogistic
+from Supervised.Classification.LogisticRegression import classify_logistic
 
 
 def load_data_set():
@@ -65,9 +65,9 @@ if __name__ == '__main__':
     data_arr, label_arr = load_data_set()
 
     # 梯度上升法
-    weights = ClassifyLogistic.grad_ascent(data_arr, label_arr).getA()
+    weights = classify_logistic.grad_ascent(data_arr, label_arr).getA()
     plot_best_fit(data_arr, label_arr, weights)
 
     # 随机梯度上升法
-    weights = ClassifyLogistic.stoc_grad_ascent(np.array(data_arr), label_arr)
+    weights = classify_logistic.stoc_grad_ascent(np.array(data_arr), label_arr)
     plot_best_fit(data_arr, label_arr, weights)

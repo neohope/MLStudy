@@ -10,7 +10,7 @@ from os import listdir
 
 from numpy import *
 
-from Supervised.Classification.KNearestNeighbors import ClassifyKNN
+from Supervised.Classification.KNearestNeighbors import classify_knn
 
 
 def img2vector(filename):
@@ -51,7 +51,7 @@ def handwritingClassTest():
         fileStr = fileNameStr.split('.')[0]
         classNumStr = int(fileStr.split('_')[0])
         vectorUnderTest = img2vector('../../../Data/KNN/handwriting/testDigits/%s' %fileNameStr)
-        classifierResult = ClassifyKNN.classify0(vectorUnderTest, trainingMat, hwLabels, 3)
+        classifierResult = classify_knn.classify0(vectorUnderTest, trainingMat, hwLabels, 3)
         print("the classifier came back with: %d, the real answer is: %d" % (classifierResult, classNumStr))
         if (classifierResult != classNumStr): errorCount += 1.0
     print("\nthe total number of errors is: %d" % errorCount)

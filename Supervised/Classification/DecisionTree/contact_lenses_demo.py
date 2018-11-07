@@ -5,8 +5,8 @@
 预测隐形眼镜类型
 """
 
-from Supervised.Classification.DecisionTree import DecisionTreePlot
-from Supervised.Classification.DecisionTree import ClassifyDT
+from Supervised.Classification.DecisionTree import decision_tree_plot
+from Supervised.Classification.DecisionTree import classify_decision_tree
 
 
 def contactLensesTest():
@@ -25,13 +25,13 @@ def contactLensesTest():
     print(lensesLabels)
 
     # 构造预测隐形眼镜的决策树
-    lensesTree = ClassifyDT.createTree(lenses, lensesLabels)
+    lensesTree = classify_decision_tree.createTree(lenses, lensesLabels)
 
     # 输出决策树
     print(lensesTree)
 
     # 可视化展现
-    DecisionTreePlot.createPlot(lensesTree)
+    decision_tree_plot.createPlot(lensesTree)
 
 
 if __name__ == "__main__":

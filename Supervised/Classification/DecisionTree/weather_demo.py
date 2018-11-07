@@ -6,8 +6,8 @@
 numpy
 """
 
-from Supervised.Classification.DecisionTree import ClassifyDT
-from Supervised.Classification.DecisionTree import DecisionTreePlot
+from Supervised.Classification.DecisionTree import classify_decision_tree
+from Supervised.Classification.DecisionTree import decision_tree_plot
 
 
 def load_data():
@@ -33,10 +33,10 @@ if __name__ == '__main__':
     print(data)
 
     # 构造决策树
-    tree = ClassifyDT.createTree(data, labels)
+    tree = classify_decision_tree.createTree(data, labels)
 
     # 输出决策树
     print(tree)
 
     # 可视化展现
-    DecisionTreePlot.createPlot(tree)
+    decision_tree_plot.createPlot(tree)

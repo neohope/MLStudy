@@ -313,7 +313,7 @@ if __name__ == '__main__':
     # 测试不同森林大小时的结果
     #  1 74.29
     # 10 78.10
-    # 20 
+    # 20 79.05
     for n_trees in [1, 10, 20]:
         scores = evaluate_algorithm(dataset, random_forest, n_folds, max_depth, min_size, sample_size, n_trees, n_features)
         seed(1)

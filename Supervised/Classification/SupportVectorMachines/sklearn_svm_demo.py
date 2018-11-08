@@ -36,7 +36,7 @@ if __name__ == '__main__':
     # Y = [0] * 20 + [1] * 20
 
     # 加载数据
-    X, Y = load_data('../../../Data/SupportVectorMachines/Set/testSet.txt')
+    X, Y = load_data('../../../Data/SupportVectorMachines/testSet.txt')
     X = np.mat(X)
 
     # 拟合一个SVM模型

@@ -44,13 +44,10 @@ def loadImages(dirName):
     return trainingMat, hwLabels
 
 
-def testDigits(kTup=('rbf', 10)):
+def testDigits(dataArr, labelArr, dataTest, labelTest, kTup=('rbf', 10)):
     """
     枚举文件，每个文件转为0-1向量
     """
-
-    # 导入训练数据
-    dataArr, labelArr = loadImages('../../../Data/KNN/handwriting/trainingDigits')
 
     # 训练
     b, alphas = svm_utils.smop(dataArr, labelArr, 200, 0.0001, 10000, kTup)
@@ -77,12 +74,9 @@ def testDigits(kTup=('rbf', 10)):
         if np.sign(predict) != np.sign(labelArr[i]): errorCount += 1
     print("the training error rate is: %f" % (float(errorCount) / m))
 
-    # 导入测试数据
-    dataArr, labelArr = loadImages('../../../Data/KNN/handwriting/testDigits')
-
     # 预测测试数据
-    datMat = np.mat(dataArr)
-    labelMat = np.mat(labelArr).transpose()
+    datMat = np.mat(dataTest)
+    labelMat = np.mat(labelTest).transpose()
     errorCount = 0
     m, n = np.shape(datMat)
     for i in range(m):
@@ -93,13 +87,22 @@ def testDigits(kTup=('rbf', 10)):
 
 
 if __name__ == "__main__":
+    # 导入训练数据
+    dataArr, labelArr = loadImages('../../../Data/KNN/handwriting/trainingDigits')
+    # 导入测试数据
+    dataTest, labelTest = loadImages('../../../Data/KNN/handwriting/testDigits')
+
+    testDigits(dataArr, labelArr, dataTest, labelTest, ('lin', 10))
+
+    testDigits(dataArr, labelArr, dataTest, labelTest, ('lin', 5))
+
+    testDigits(dataArr, labelArr, dataTest, labelTest, ('lin', 0.1))
+
     # 手写识别问题回顾
-    testDigits(('rbf', 0.1))
-    testDigits(('rbf', 5))
     # 训练数据错误率0
     # 测试数据错误率0.006
-    testDigits(('rbf', 10))
+    testDigits(dataArr, labelArr, dataTest, labelTest, ('rbf', 10))
 
-    testDigits(('lin', 0.1))
-    testDigits(('lin', 5))
-    testDigits(('lin', 10))
+    testDigits(dataArr, labelArr, dataTest, labelTest, ('rbf', 5))
+
+    testDigits(dataArr, labelArr, dataTest, labelTest, ('rbf', 0.1))

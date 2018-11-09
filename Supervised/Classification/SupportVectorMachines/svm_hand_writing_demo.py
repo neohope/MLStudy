@@ -58,12 +58,6 @@ def testDigits(dataArr, labelArr, dataTest, labelTest, kTup=('rbf', 10)):
     labelSV = labelMat[svInd]
     print("there are %d Support Vectors" % np.shape(sVs)[0])
 
-    # 计算w值
-    ws = svm_utils.calcWs(alphas, dataArr, labelArr)
-
-    # 画图
-    svm_utils.plotfig_SVM(dataArr, labelArr, ws, b, alphas, hasKernal=True)
-
     # 用训练集判断准确率
     m, n = np.shape(datMat)
     errorCount = 0
@@ -92,17 +86,23 @@ if __name__ == "__main__":
     # 导入测试数据
     dataTest, labelTest = loadImages('../../../Data/KNN/handwriting/testDigits')
 
+    # 训练数据错误率0.055
+    # 测试数据错误率0.044
+    # 10没有任何作用
     testDigits(dataArr, labelArr, dataTest, labelTest, ('lin', 10))
 
-    testDigits(dataArr, labelArr, dataTest, labelTest, ('lin', 5))
+    # 训练数据错误率0.014
+    # 测试数据错误率0.091
+    testDigits(dataArr, labelArr, dataTest, labelTest, ('rbf', 50))
 
-    testDigits(dataArr, labelArr, dataTest, labelTest, ('lin', 0.1))
-
-    # 手写识别问题回顾
-    # 训练数据错误率0
-    # 测试数据错误率0.006
+    # 训练数据错误率0.000
+    # 测试数据错误率0.092
     testDigits(dataArr, labelArr, dataTest, labelTest, ('rbf', 10))
 
+    # 训练数据错误率0.000
+    # 测试数据错误率0.004
     testDigits(dataArr, labelArr, dataTest, labelTest, ('rbf', 5))
 
+    # 训练数据错误率0.000
+    # 测试数据错误率0.000
     testDigits(dataArr, labelArr, dataTest, labelTest, ('rbf', 0.1))

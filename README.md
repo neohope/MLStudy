@@ -28,20 +28,28 @@ K-Means
 2. install packages
 
  ```shell
-    pip install bs4
-    pip install feedparser
-    pip install jieba
+
     pip install matplotlib
     pip install numpy
     pip install pickle
     pip install pydotplus
     pip install sklearn
     pip install tensorflow
+
 ```
 
-3. install GraphViz
+3. install packages to get data
 
-4. use IDE like pycharm to open the project
+ ```shell
+    pip install bs4
+    pip install feedparser
+    pip install jieba
+    pip install python-votesmart
+ ...
+
+4. install GraphViz
+
+5. use IDE like pycharm to open the project
 
 
 # Reference

@@ -399,6 +399,10 @@ def calcWs(alphas, dataArr, classLabels):
     return w
 
 
+def hyperplane_value(x, w, b, v):
+    return (-w[0] * x - b + v) / w[1]
+
+
 def plotfig_SVM(xArr, yArr, ws, b, alphas, hasKernal=False):
     """
     绘制SVM
@@ -415,8 +419,27 @@ def plotfig_SVM(xArr, yArr, ws, b, alphas, hasKernal=False):
 
     if(not hasKernal):
         x = np.arange(-1.0, 10.0, 0.1)
-        y = (- b - ws[0, 0] * x) / ws[1, 0]
-        ax.plot(x, y)
+
+        hyp_x_min = x[0]
+        hyp_x_max = x[-1]
+
+        # (w.x+b) = 1
+        # positive support vector hyperplane
+        psv1 = hyperplane_value(hyp_x_min, ws, b, 1)
+        psv2 = hyperplane_value(hyp_x_max, ws, b, 1)
+        ax.plot([hyp_x_min, hyp_x_max], [psv1, psv2], 'k')
+
+        # (w.x+b) = -1
+        # negative support vector hyperplane
+        nsv1 = hyperplane_value(hyp_x_min, ws, b, -1)
+        nsv2 = hyperplane_value(hyp_x_max, ws, b, -1)
+        ax.plot([hyp_x_min, hyp_x_max], [nsv1, nsv2], 'k')
+
+        # (w.x+b) = 0
+        # positive support vector hyperplane
+        db1 = hyperplane_value(hyp_x_min, ws, b, 0)
+        db2 = hyperplane_value(hyp_x_max, ws, b, 0)
+        ax.plot([hyp_x_min, hyp_x_max], [db1, db2], 'y--')
 
     for i in range(np.shape(yMat[0])[1]):
         if yMat[0, i] > 0:

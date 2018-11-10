@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 """
-走迷宫
+走迷宫，没有任何障碍
 this is the grid world environment file
 https://github.com/dennybritz/reinforcement-learning/blob/master/lib/envs/gridworld.py
 author dennybritz

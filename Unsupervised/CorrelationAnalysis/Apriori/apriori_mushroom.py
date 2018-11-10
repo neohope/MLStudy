@@ -10,10 +10,10 @@ from Unsupervised.CorrelationAnalysis.Apriori import apriori_utils
 
 
 if __name__ == "__main__":
-    #
-
-    # 得到全集的数据
+    # 加载数据集
     dataSet = [line.split() for line in open("../../../Data/Apriori/mushroom.txt").readlines()]
+
+    # Apriori 算法生成频繁项集以及它们的支持度
     L, supportData = apriori_utils.apriori(dataSet, minSupport=0.3)
 
     # 2表示毒蘑菇，1表示可食用的蘑菇

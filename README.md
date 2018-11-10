@@ -28,7 +28,7 @@ K-Means
 2. install packages
 
  ```shell
-
+    pip install gym
     pip install matplotlib
     pip install numpy
     pip install pickle

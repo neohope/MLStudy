@@ -29,13 +29,14 @@ K-Means
 
  ```shell
     pip install gym
+    pip install gym[atari]
     pip install matplotlib
     pip install numpy
     pip install pickle
     pip install pydotplus
+    pip install scikit-image
     pip install sklearn
     pip install tensorflow
-
 ```
 
 3. install packages to get data
@@ -56,4 +57,3 @@ K-Means
 
 https://github.com/apachecn/AiLearning
 https://medium.com/deep-math-machine-learning-ai
-

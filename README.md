@@ -17,6 +17,7 @@ SupportVectorMachines
 RandomForest
 AdaBoost
 
+
 ## Clustering
 K-Means
 
@@ -29,10 +30,10 @@ K-Means
 
  ```shell
     pip install gym
-    pip install gym[atari]
+    pip install gym[atari] (linux is better)
+    pip install keras
     pip install matplotlib
     pip install numpy
-    pip install pickle
     pip install pydotplus
     pip install scikit-image
     pip install sklearn
@@ -45,7 +46,7 @@ K-Means
     pip install bs4
     pip install feedparser
     pip install jieba
-    pip install python-votesmart
+    pip install python-votesmart (do not support python3.6)
  ...
 
 4. install GraphViz

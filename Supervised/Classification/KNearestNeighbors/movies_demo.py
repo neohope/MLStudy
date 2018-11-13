@@ -6,7 +6,7 @@
 判断是哪一类电影
 """
 
-from numpy import *
+import numpy as np
 
 from Supervised.Classification.KNearestNeighbors import classify_knn
 
@@ -17,7 +17,7 @@ def createDataSet():
     根据坐标，将数据划分为两类A和B
     """
     # [fight,kiss]
-    group = array([[3, 104], [2, 100], [1, 81], [101, 10], [99, 5], [98, 2]])
+    group = np.array([[3, 104], [2, 100], [1, 81], [101, 10], [99, 5], [98, 2]])
     labels = ['Love', 'Love', 'Love', 'Action', 'Action', 'Action']
     return group, labels
 

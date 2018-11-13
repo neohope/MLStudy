@@ -7,7 +7,7 @@
 """
 
 import matplotlib.pyplot as plt
-from numpy import *
+import numpy as np
 
 from Supervised.Classification.KNearestNeighbors import classify_knn
 
@@ -22,7 +22,7 @@ def file2matrix(filename):
     # 生成对应的空矩阵
     fr = open(filename)
     numberOfLines = len(fr.readlines())
-    returnMat = zeros((numberOfLines, 3))
+    returnMat = np.zeros((numberOfLines, 3))
     classLabelVector = []
 
     fr = open(filename)
@@ -52,12 +52,12 @@ def autoNorm0(dataSet):
     # 极差
     ranges = maxVals - minVals
 
-    normDataSet = zeros(shape(dataSet))
+    normDataSet = np.zeros(np.shape(dataSet))
     m = dataSet.shape[0]
     # 生成与最小值之差组成的矩阵
-    normDataSet = dataSet-tile(minVals, (m, 1))
+    normDataSet = dataSet-np.tile(minVals, (m, 1))
     # 将最小值之差除以范围组成矩阵
-    normDataSet = normDataSet/tile(ranges, (m, 1))
+    normDataSet = normDataSet/np.tile(ranges, (m, 1))
     return normDataSet, ranges, minVals
 
 def autoNorm1(dataSet):
@@ -77,7 +77,7 @@ def autoNorm1(dataSet):
 def draw(datingDataMat,datingLabels):
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.scatter(datingDataMat[:, 0], datingDataMat[:, 1], 15.0 * array(datingLabels), 15.0 * array(datingLabels))
+    ax.scatter(datingDataMat[:, 0], datingDataMat[:, 1], 15.0 * np.array(datingLabels), 15.0 * np.array(datingLabels))
     plt.show()
 
 def datingClassTest():
@@ -114,7 +114,7 @@ def classifyPerson():
     iceCream = 0.5
     datingDataMat, datingLabels = file2matrix('../../../Data/KNN/dating/dating.txt')
     normMat, ranges, minVals = autoNorm0(datingDataMat)
-    inArr = array([ffMiles, percentTats, iceCream])
+    inArr = np.array([ffMiles, percentTats, iceCream])
     classifierResult = classify_knn.classify0((inArr - minVals) / ranges, normMat, datingLabels, 3)
     print("You will probably like this person: ", resultList[classifierResult - 1])
 

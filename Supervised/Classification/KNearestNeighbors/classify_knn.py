@@ -6,7 +6,7 @@
 利用KNN进行分类处理
 """
 
-from numpy import *
+import numpy as np
 from collections import Counter
 import operator
 
@@ -23,7 +23,7 @@ def classify0(inX, dataSet, labels, k):
     dataSetSize = dataSet.shape[0]
 
     # tile生成和训练样本对应的矩阵，并与训练样本求差
-    diffMat = tile(inX, (dataSetSize, 1)) - dataSet
+    diffMat = np.tile(inX, (dataSetSize, 1)) - dataSet
 
     """
     欧氏距离： 点到点之间的距离

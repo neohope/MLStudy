@@ -6,8 +6,7 @@
 判断是哪一类Point
 """
 
-from numpy import *
-
+import numpy as np
 from Supervised.Classification.KNearestNeighbors import classify_knn
 
 
@@ -16,7 +15,7 @@ def createDataSet():
     生成测试数据
     根据坐标，将数据划分为两类A和B
     """
-    group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
+    group = np.array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
     labels = ['A', 'A', 'B', 'B']
     return group, labels
 

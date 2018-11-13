@@ -7,9 +7,7 @@
 """
 
 from os import listdir
-
-from numpy import *
-
+import numpy as np
 from Supervised.Classification.KNearestNeighbors import classify_knn
 
 
@@ -19,7 +17,7 @@ def img2vector(filename):
     该函数将图像转换为向量：该函数创建 1 * 1024 的NumPy数组，然后打开给定的文件，
     循环读出文件的前32行，并将每行的头32个字符值存储在NumPy数组中，最后返回数组。
     """
-    returnVect = zeros((1, 1024))
+    returnVect = np.zeros((1, 1024))
     fr = open(filename)
     for i in range(32):
         lineStr = fr.readline()
@@ -33,7 +31,7 @@ def handwritingClassTest():
     hwLabels = []
     trainingFileList = listdir('../../../Data/KNN/handwriting/trainingDigits')
     m = len(trainingFileList)
-    trainingMat = zeros((m, 1024))
+    trainingMat = np.zeros((m, 1024))
     for i in range(m):
         fileNameStr = trainingFileList[i]
         fileStr = fileNameStr.split('.')[0]

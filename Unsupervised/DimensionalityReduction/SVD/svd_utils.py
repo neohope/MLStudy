@@ -7,7 +7,7 @@ Singular Value Decomposition，SVD
 """
 
 from numpy import linalg as la
-from numpy import *
+import numpy as np
 
 
 def ecludSim(inA, inB):
@@ -25,7 +25,7 @@ def pearsSim(inA, inB):
     if len(inA) < 3:
         return 1.0
 
-    return 0.5 + 0.5 * corrcoef(inA, inB, rowvar=0)[0][1]
+    return 0.5 + 0.5 * np.corrcoef(inA, inB, rowvar=0)[0][1]
 
 
 def cosSim(inA, inB):
@@ -52,7 +52,7 @@ def standEst(dataMat, user, simMeas, item):
         ratSimTotal/simTotal     评分（0～5之间的值）
     """
     # 得到数据集中的物品数目
-    n = shape(dataMat)[1]
+    n = np.shape(dataMat)[1]
 
     # 初始化两个评分值
     simTotal = 0.0
@@ -69,7 +69,7 @@ def standEst(dataMat, user, simMeas, item):
         # 寻找两个用户都评级的物品
         # 变量 overLap 给出的是两个物品当中已经被评分的那个元素的索引ID
         # logical_and 计算x1和x2元素的真值。
-        overLap = nonzero(logical_and(dataMat[:, item].A > 0, dataMat[:, j].A > 0))[0]
+        overLap = np.nonzero(np.logical_and(dataMat[:, item].A > 0, dataMat[:, j].A > 0))[0]
 
         # 如果相似度为0，则两着没有任何重合元素，终止本次循环
         if len(overLap) == 0:
@@ -106,7 +106,7 @@ def svdEst(dataMat, user, simMeas, item):
     """
 
     # 物品数目
-    n = shape(dataMat)[1]
+    n = np.shape(dataMat)[1]
 
     # 对数据集进行SVD分解
     simTotal = 0.0
@@ -117,7 +117,7 @@ def svdEst(dataMat, user, simMeas, item):
     U, Sigma, VT = la.svd(dataMat)
 
     # 如果要进行矩阵运算，就必须要用这些奇异值构建出一个对角矩阵
-    Sig4 = mat(eye(4) * Sigma[: 4])
+    Sig4 = np.mat(np.eye(4) * Sigma[: 4])
 
     # 利用U矩阵将物品转换到低维空间中，构建转换后的物品(物品+4个主要的特征)
     xformedItems = dataMat.T * U[:, :4] * Sig4.I
@@ -157,7 +157,7 @@ def recommend(dataMat, user, N=3, simMeas=cosSim, estMethod=standEst):
 
     # 寻找未评级的物品
     # 对给定的用户建立一个未评分的物品列表
-    unratedItems = nonzero(dataMat[user, :].A == 0)[1]
+    unratedItems = np.nonzero(dataMat[user, :].A == 0)[1]
 
     # 如果不存在未评分物品，那么就退出函数
     if len(unratedItems) == 0:

@@ -12,7 +12,7 @@ from Supervised.Regression.LinearRegression import linear_regression_utils
 
 
 def stand_least_square(xMat, yMat):
-    '''
+    """
     Description：
         线性回归
     Args:
@@ -20,7 +20,7 @@ def stand_least_square(xMat, yMat):
         Y ：对应于输入数据的类别标签，也就是每个样本对应的目标变量
     Returns:
         ws：回归系数
-    '''
+    """
 
     # 矩阵转置
     yMat = yMat.T

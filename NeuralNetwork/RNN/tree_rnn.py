@@ -26,13 +26,13 @@ class RecursiveLayer(object):
     Tree递归神经网络
     """
     def __init__(self, node_width, child_count, activator, learning_rate):
-        '''
+        """ 
         递归神经网络构造函数
         node_width: 表示每个节点的向量的维度
         child_count: 每个父节点有几个子节点
         activator: 激活函数对象
         learning_rate: 梯度下降算法学习率
-        '''
+        """ 
         self.node_width = node_width
         self.child_count = child_count
         self.activator = activator
@@ -45,46 +45,46 @@ class RecursiveLayer(object):
         self.root = None
 
     def forward(self, *children):
-        '''
+        """ 
         前向传播
-        '''
+        """ 
         children_data = self.concatenate(children)
         parent_data = self.activator.forward(np.dot(self.W, children_data) + self.b)
         self.root = TreeNode(parent_data, children , children_data)
 
     def backward(self, parent_delta):
-        '''
+        """ 
         BPTS反向传播
-        '''
+        """ 
         self.calc_delta(parent_delta, self.root)
         self.W_grad, self.b_grad = self.calc_gradient(self.root)
 
     def update(self):
-        '''
+        """ 
         使用SGD算法更新权重
-        '''
+        """ 
         self.W -= self.learning_rate * self.W_grad
         self.b -= self.learning_rate * self.b_grad
 
     def reset_state(self):
-        '''
+        """ 
         状态重置
-        '''
+        """ 
         self.root = None
 
     def concatenate(self, tree_nodes):
-        '''
+        """ 
         将各个树节点中的数据拼接成一个长向量
-        '''
+        """ 
         concat = np.zeros((0,1))
         for node in tree_nodes:
             concat = np.concatenate((concat, node.data))
         return concat
 
     def calc_delta(self, parent_delta, parent):
-        '''
+        """ 
         计算每个节点的delta
-        '''
+        """ 
         parent.delta = parent_delta
         if parent.children:
             # 根据式2计算每个子节点的delta
@@ -99,9 +99,9 @@ class RecursiveLayer(object):
                 self.calc_delta(children_delta[s[1]:s[2]], parent.children[s[0]])
 
     def calc_gradient(self, parent):
-        '''
+        """ 
         计算每个节点权重的梯度，并将它们求和，得到最终的梯度
-        '''
+        """ 
         W_grad = np.zeros((self.node_width, self.node_width * self.child_count))
         b_grad = np.zeros((self.node_width, 1))
         if not parent.children:

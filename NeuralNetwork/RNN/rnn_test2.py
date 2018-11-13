@@ -11,9 +11,9 @@ from NeuralNetwork.ANN.activators import IdentityActivator
 
 
 def gradient_check():
-    '''
+    """ 
     梯度检查
-    '''
+    """ 
     # 设计一个误差函数，取所有节点输出项之和
     error_function = lambda o: o.sum()
     rl = rnn.RecurrentLayer(3, 2, IdentityActivator(), 1e-3)

@@ -57,7 +57,7 @@ def pca(dataMat, topNfeat=9999999):
     # 每个向量同时都减去 均值
     meanRemoved = dataMat - meanVals
 
-    '''
+    """ 
     方差：（一维）度量两个随机变量关系的统计量
     协方差： （二维）度量各个维度偏离其均值的程度
     协方差矩阵：（多维）度量各个维度偏离其均值的程度
@@ -65,7 +65,7 @@ def pca(dataMat, topNfeat=9999999):
     当 cov(X, Y)>0时，表明X与Y正相关；(X越大，Y也越大；X越小Y，也越小。这种情况，我们称为“正相关”。)
     当 cov(X, Y)<0时，表明X与Y负相关；
     当 cov(X, Y)=0时，表明X与Y不相关。
-    '''
+    """ 
     covMat = np.cov(meanRemoved, rowvar=0)
 
     # eigVals为特征值， eigVects为特征向量

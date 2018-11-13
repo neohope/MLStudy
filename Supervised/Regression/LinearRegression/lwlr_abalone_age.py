@@ -13,14 +13,14 @@ from Supervised.Regression.LinearRegression import linear_regression_utils
 
 
 def test():
-    '''
+    """
     Desc:
         预测鲍鱼的年龄
     Args:
         None
     Returns:
         None
-    '''
+    """
     # 加载数据
     abX, abY = linear_regression_utils.load_data("../../../Data/LinearRegression/abalone/abalone.txt")
 

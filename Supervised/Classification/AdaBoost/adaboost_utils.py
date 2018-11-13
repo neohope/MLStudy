@@ -89,13 +89,13 @@ def build_stump(data_arr, class_labels, D):
                 err_arr = np.mat(np.ones((m, 1)))
                 err_arr[predicted_vals == label_mat] = 0
                 weighted_err = D.T * err_arr
-                '''
+                """ 
                 dim              表示 feature列
                 thresh_val       表示树的分界值
                 inequal          表示计算树左右颠倒的错误率的情况
                 weighted_error   表示整体结果的错误率
                 best_class_est    预测的最优结果 （与class_labels对应）
-                '''
+                """ 
                 if weighted_err < min_err:
                     min_err = weighted_err
                     best_class_est = predicted_vals.copy()
@@ -192,10 +192,10 @@ def plot_roc(pred_strengths, class_labels):
     ax.axis([0, 1, 0, 1])
     plt.show()
 
-    '''
+    """ 
     为了计算 AUC ，我们需要对多个小矩形的面积进行累加。
     这些小矩形的宽度是x_step，因此可以先对所有矩形的高度进行累加，最后再乘以x_step得到其总面积。
     所有高度的和(y_sum)随着x轴的每次移动而渐次增加。
-    '''
+    """ 
     print("the Area Under the Curve is: ", y_sum * x_step)
 

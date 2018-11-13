@@ -9,9 +9,9 @@ import numpy as np
 
 
 def load_data(fileName):
-    '''
+    """
     加载数据集
-    '''
+    """
     dataSet = []
     fr = open(fileName)
     for line in fr.readlines():
@@ -22,20 +22,20 @@ def load_data(fileName):
 
 
 def distEclud(vecA, vecB):
-    '''
+    """
     欧氏距离计算
-    '''
+    """
     return np.sqrt(np.sum(np.power(vecA - vecB, 2)))
 
 
 def distSLC(vecA, vecB):
-    '''
+    """
     返回地球表面两点间的距离,单位是英里
     给定两个点的经纬度,可以使用球面余弦定理来计算亮点的距离
     :param vecA:
     :param vecB:
     :return:
-    '''
+    """
     # 经度和维度用角度作为单位,但是sin()和cos()以弧度为输入
     # 可以将江都除以180度然后再诚意圆周率pi转换为弧度
     a = np.sin(vecA[0, 1] * np.pi / 180) * np.sin(vecB[0, 1] * np.pi / 180)
@@ -45,11 +45,11 @@ def distSLC(vecA, vecB):
 
 
 def randCent(dataMat, k):
-    '''
+    """
     为给定数据集构建一个包含K个随机质心的集合,
     随机质心必须要在整个数据集的边界之内,这可以通过找到数据集每一维的最小和最大值来完成
     然后生成0到1.0之间的随机数并通过取值范围和最小值,以便确保随机点在数据的边界之内
-    '''
+    """
     # 获取样本数与特征值
     m, n = np.shape(dataMat)
 
@@ -65,7 +65,7 @@ def randCent(dataMat, k):
 
 
 def kMeans(dataMat, k, distMeas=distEclud, createCent=randCent):
-    '''
+    """
     KMeans聚类
     创建K个质心,然后将每个店分配到最近的质心,再重新计算质心。
     这个过程重复数次,直到数据点的簇分配结果不再改变为止
@@ -74,7 +74,7 @@ def kMeans(dataMat, k, distMeas=distEclud, createCent=randCent):
     :param distMeans: 计算距离
     :param createCent: 创建初始质心
     :return:
-    '''
+    """
 
     # 获取样本数和特征数
     m, n = np.shape(dataMat)
@@ -114,7 +114,7 @@ def kMeans(dataMat, k, distMeas=distEclud, createCent=randCent):
 
 
 def biKmeans(dataMat, k, distMeas=distEclud):
-    '''
+    """
     二分KMeans聚类
     在给定数据集,簇数和距离计算方法的条件下,计算聚类结果
     SSE: Sum of Sqared Error（误差平方和）
@@ -122,7 +122,7 @@ def biKmeans(dataMat, k, distMeas=distEclud):
     :param k:
     :param distMeas:
     :return:
-    '''
+    """
     # 获取样本数和特征数
     m, n = np.shape(dataMat)
 

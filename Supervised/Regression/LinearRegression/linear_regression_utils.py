@@ -39,7 +39,7 @@ def load_data(fileName):
 
 
 def lwlrTest(testArr, xArr, yArr, k=1.0):
-    '''
+    """
     Description：
         测试局部加权线性回归，对数据集中每个点调用 lwlr() 函数
     Args：
@@ -49,7 +49,7 @@ def lwlrTest(testArr, xArr, yArr, k=1.0):
         k：控制核函数的衰减速率
     Returns：
         yHat：预测点的估计值
-    '''
+    """
     # 得到样本点的总数
     m = np.shape(testArr)[0]
     # 构建一个全部都是 0 的 1 * m 的矩阵
@@ -62,7 +62,7 @@ def lwlrTest(testArr, xArr, yArr, k=1.0):
 
 
 def lwlr(testPoint, xArr, yArr, k=1.0):
-    '''
+    """ 
     Description：
         局部加权线性回归，在待预测点附近的每个点赋予一定的权重，在子集上基于最小均方差来进行普通的回归。
     Args：
@@ -78,7 +78,7 @@ def lwlr(testPoint, xArr, yArr, k=1.0):
         关于预测点的选取，在我的代码中取的是样本点。其中k是带宽参数，控制w（钟形函数）的宽窄程度，类似于高斯函数的标准差。
         算法思路：假设预测点取样本点中的第i个样本点（共m个样本点），遍历1到m个样本点（含第i个），算出每一个样本点与预测点的距离，
         也就可以计算出每个样本贡献误差的权值，可以看出w是一个有m个元素的向量（写成对角阵形式）。
-    '''
+    """ 
     # mat() 函数是将array转换为矩阵的函数， mat().T 是转换为矩阵之后，再进行转置操作
     xMat = np.mat(xArr)
     yMat = np.mat(yArr).T
@@ -107,7 +107,7 @@ def lwlr(testPoint, xArr, yArr, k=1.0):
 
 
 def ridgeTest(xArr, yArr):
-    '''
+    """ 
     Desc：
         函数 ridgeTest() 用于在一组λ上测试结果
     Args：
@@ -115,7 +115,7 @@ def ridgeTest(xArr, yArr):
         yArr：样本数据的类别标签，即真实数据
     Returns：
         wMat：将所有的回归系数输出到一个矩阵并返回
-    '''
+    """ 
 
     xMat = np.mat(xArr)
     yMat = np.mat(yArr).T
@@ -142,7 +142,7 @@ def ridgeTest(xArr, yArr):
 
 
 def ridgeRegres(xMat, yMat, lam=0.2):
-    '''
+    """ 
     Desc：
         这个函数实现了给定 lambda 下的岭回归求解。
         如果数据的特征比样本点还多，就不能再使用上面介绍的的线性回归和局部现行回归了，因为计算 (xTx)^(-1)会出现错误。
@@ -154,7 +154,7 @@ def ridgeRegres(xMat, yMat, lam=0.2):
         lam：引入的一个λ值，使得矩阵非奇异
     Returns：
         经过岭回归公式计算得到的回归系数
-    '''
+    """ 
 
     xTx = xMat.T * xMat
     # 岭回归就是在矩阵 xTx 上加一个 λI 从而使得矩阵非奇异，进而能对 xTx + λI 求逆
@@ -168,7 +168,7 @@ def ridgeRegres(xMat, yMat, lam=0.2):
 
 
 def rssError(yArr, yHatArr):
-    '''
+    """ 
     Desc:
         计算分析预测误差的大小
     Args:
@@ -176,5 +176,5 @@ def rssError(yArr, yHatArr):
         yHatArr：预测得到的估计值
     Returns:
         计算真实值和估计值得到的值的平方和作为最后的返回值
-    '''
+    """ 
     return ((yArr - yHatArr) ** 2).sum()

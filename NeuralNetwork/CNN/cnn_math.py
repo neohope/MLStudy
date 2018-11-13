@@ -33,11 +33,11 @@ class ConvLayer(object):
         self.learning_rate = learning_rate
 
     def forward(self, input_array):
-        '''
+        """ 
         前向传播
         计算卷积层的输出
         输出结果保存在self.output_array
-        '''
+        """ 
         self.input_array = input_array
         self.padded_input_array = padding(input_array, self.zero_padding)
         for f in range(self.filter_number):
@@ -47,29 +47,29 @@ class ConvLayer(object):
         element_wise_op(self.output_array, self.activator.forward)
 
     def backward(self, input_array, sensitivity_array, activator):
-        '''
+        """ 
         后向传播
         计算传递给前一层的误差项，以及计算每个权重的梯度
         前一层的误差项保存在self.delta_array
         梯度保存在Filter对象的weights_grad
-        '''
+        """ 
         self.forward(input_array)
         self.bp_sensitivity_map(sensitivity_array, activator)
         self.bp_gradient(sensitivity_array)
 
     def update(self):
-        '''
+        """ 
         按照梯度下降，更新权重
-        '''
+        """ 
         for filter in self.filters:
             filter.update(self.learning_rate)
 
     def bp_sensitivity_map(self, sensitivity_array, activator):
-        '''
+        """ 
         计算传递到上一层的sensitivity map
         sensitivity_array: 本层的sensitivity map
         activator: 上一层的激活函数
-        '''
+        """ 
         # 处理卷积步长，对原始sensitivity map进行扩展
         expanded_array = self.expand_sensitivity_map( sensitivity_array)
 
@@ -102,9 +102,9 @@ class ConvLayer(object):
         self.delta_array *= derivative_array
 
     def bp_gradient(self, sensitivity_array):
-        '''
+        """ 
         处理卷积步长
-        '''
+        """ 
         expanded_array = self.expand_sensitivity_map(sensitivity_array)
         for f in range(self.filter_number):
             # 计算每个权重的梯度
@@ -115,9 +115,9 @@ class ConvLayer(object):
             filter.bias_grad = expanded_array[f].sum()
 
     def expand_sensitivity_map(self, sensitivity_array):
-        '''
+        """ 
         对原始sensitivity map进行扩展
-        '''
+        """ 
         depth = sensitivity_array.shape[0]
         # 确定扩展后sensitivity map的大小
         # 计算stride为1时sensitivity map的大小
@@ -168,9 +168,9 @@ class Filter(object):
 
 
 def conv(input_array, kernel_array, output_array, stride, bias):
-    '''
+    """ 
     计算卷积，自动适配输入为2D和3D的情况
-    '''
+    """ 
     channel_number = input_array.ndim
     output_width = output_array.shape[1]
     output_height = output_array.shape[0]
@@ -182,10 +182,10 @@ def conv(input_array, kernel_array, output_array, stride, bias):
 
 
 def get_patch(input_array, i, j, filter_width, filter_height, stride):
-    '''
+    """ 
     从输入数组中获取本次卷积的区域，
     自动适配输入为2D和3D的情况
-    '''
+    """ 
     start_i = i * stride
     start_j = j * stride
     if input_array.ndim == 2:
@@ -199,9 +199,9 @@ def get_patch(input_array, i, j, filter_width, filter_height, stride):
 
 
 def padding(input_array, zp):
-    '''
+    """ 
     为数组增加Zero padding，自动适配输入为2D和3D的情况
-    '''
+    """ 
     if zp == 0:
         return input_array
     else:
@@ -221,8 +221,8 @@ def padding(input_array, zp):
 
 
 def element_wise_op(array, op):
-    '''
+    """ 
     对numpy数组进行element wise操作
-    '''
+    """ 
     for i in np.nditer(array, op_flags=['readwrite']):
         i[...] = op(i)

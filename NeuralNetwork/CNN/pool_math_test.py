@@ -30,18 +30,18 @@ def init_pool_test():
 
 
 def test_forward():
-    '''
+    """ 
     测试前向传播
-    '''
+    """ 
     a, b, mpl = init_pool_test()
     mpl.forward(a)
     print('input array:\n%s\noutput array:\n%s' % (a, mpl.output_array))
 
 
 def test_backward():
-    '''
+    """ 
     测试后向传播
-    '''
+    """ 
     a, b, mpl = init_pool_test()
     mpl.backward(a, b)
     print('input array:\n%s\nsensitivity array:\n%s\ndelta array:\n%s' % (a, b, mpl.delta_array))

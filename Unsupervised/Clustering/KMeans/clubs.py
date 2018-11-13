@@ -11,9 +11,9 @@ from Unsupervised.Clustering.KMeans import kmeans_utils
 
 
 def load_data():
-    '''
+    """ 
     加载数据
-    '''
+    """ 
     datList = []
     for line in open(fileName).readlines():
         lineArr = line.split('\t')
@@ -23,13 +23,13 @@ def load_data():
 
 
 def clubs_cluster(fileName, imgName, numClust=4):
-    '''
+    """ 
     将Club地址聚类，并绘制到地图上
     :param fileName: 文本数据路径
     :param imgName: 图片路径
     :param numClust: 希望得到的簇数目
     :return:
-    '''
+    """ 
 
     # 加载数据
     datMat=load_data()

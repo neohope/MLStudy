@@ -47,26 +47,26 @@ class LstmLayer(object):
         self.Wch, self.Wcx, self.bc = (self.init_weight_mat())
 
     def init_state_vec(self):
-        '''
+        """ 
         初始化保存状态的向量
-        '''
+        """ 
         state_vec_list = []
         state_vec_list.append(np.zeros((self.state_width, 1)))
         return state_vec_list
 
     def init_weight_mat(self):
-        '''
+        """ 
         初始化权重矩阵
-        '''
+        """ 
         Wh = np.random.uniform(-1e-4, 1e-4, (self.state_width, self.state_width))
         Wx = np.random.uniform(-1e-4, 1e-4, (self.state_width, self.input_width))
         b = np.zeros((self.state_width, 1))
         return Wh, Wx, b
 
     def forward(self, x):
-        '''
+        """ 
         前向传播
-        '''
+        """ 
         self.times += 1
         # 遗忘门
         fg = self.calc_gate(x, self.Wfx, self.Wfh, self.bf, self.gate_activator)
@@ -88,26 +88,26 @@ class LstmLayer(object):
         self.h_list.append(h)
 
     def calc_gate(self, x, Wx, Wh, b, activator):
-        '''
+        """ 
         计算门
-        '''
+        """ 
         h = self.h_list[self.times - 1] # 上次的LSTM输出
         net = np.dot(Wh, h) + np.dot(Wx, x) + b
         gate = activator.forward(net)
         return gate
 
     def backward(self, x, delta_h, activator):
-        '''
+        """ 
         后向传播
         实现LSTM训练算法
-        '''
+        """ 
         self.calc_delta(delta_h, activator)
         self.calc_gradient(x)
 
     def update(self):
-        '''
+        """ 
         按照梯度下降，更新权重
-        '''
+        """ 
         self.Wfh -= self.learning_rate * self.Whf_grad
         self.Wfx -= self.learning_rate * self.Whx_grad
         self.bf -= self.learning_rate * self.bf_grad
@@ -122,9 +122,9 @@ class LstmLayer(object):
         self.bc -= self.learning_rate * self.bc_grad
 
     def calc_delta(self, delta_h, activator):
-        '''
+        """ 
         初始化各个时刻的误差项
-        '''
+        """ 
         self.delta_h_list = self.init_delta()  # 输出误差项
         self.delta_o_list = self.init_delta()  # 输出门误差项
         self.delta_i_list = self.init_delta()  # 输入门误差项
@@ -139,19 +139,19 @@ class LstmLayer(object):
             self.calc_delta_k(k)
 
     def init_delta(self):
-        '''
+        """ 
         初始化误差项
-        '''
+        """ 
         delta_list = []
         for i in range(self.times + 1):
             delta_list.append(np.zeros((self.state_width, 1)))
         return delta_list
 
     def calc_delta_k(self, k):
-        '''
+        """ 
         根据k时刻的delta_h，计算k时刻的delta_f、
         delta_i、delta_o、delta_ct，以及k-1时刻的delta_h
-        '''
+        """ 
         # 获得k时刻前向计算的值
         ig = self.i_list[k]
         og = self.o_list[k]
@@ -213,18 +213,18 @@ class LstmLayer(object):
         self.Wcx_grad = np.dot(self.delta_ct_list[-1], xt)
 
     def init_weight_gradient_mat(self):
-        '''
+        """ 
         初始化权重矩阵
-        '''
+        """ 
         Wh_grad = np.zeros((self.state_width, self.state_width))
         Wx_grad = np.zeros((self.state_width, self.input_width))
         b_grad = np.zeros((self.state_width, 1))
         return Wh_grad, Wx_grad, b_grad
 
     def calc_gradient_t(self, t):
-        '''
+        """ 
         计算每个时刻t权重的梯度
-        '''
+        """ 
         h_prev = self.h_list[t-1].transpose()
         Wfh_grad = np.dot(self.delta_f_list[t], h_prev)
         bf_grad = self.delta_f_list[t]

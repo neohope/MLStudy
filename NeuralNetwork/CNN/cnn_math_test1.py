@@ -10,18 +10,18 @@ from NeuralNetwork.CNN import cnn_math_utils
 
 
 def test_forward():
-    '''
+    """ 
     测试前向传播
-    '''
+    """ 
     a, b, cl = cnn_math_utils.load_test()
     cl.forward(a)
     print("cl.output_array:\n", cl.output_array)
 
 
 def test_backward():
-    '''
+    """ 
     测试后向传播
-    '''
+    """ 
     a, b, cl = cnn_math_utils.load_test()
     cl.backward(a, b, IdentityActivator())
     cl.update()

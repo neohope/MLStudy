@@ -49,9 +49,9 @@ class MaxPoolingLayer(object):
 
 
 def get_max_index(array):
-    '''
+    """ 
     获取一个2D区域的最大值所在的索引
-    '''
+    """ 
     max_i = 0
     max_j = 0
     max_value = array[0, 0]

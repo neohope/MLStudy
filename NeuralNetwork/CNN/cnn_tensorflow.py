@@ -50,7 +50,7 @@ def train(X_train,Y_train,X_test,Y_test):
             if epoch % 10 == 0:
                 accuracy = np.mean(np.argmax(Y_test, axis=1) == session.run(predict_op,feed_dict={X: X_test, p_keep_conv: 1.0,p_keep_hidden: 1.0}))
                 print("epoch : {} and accuracy : {}".format(epoch, accuracy))
-                print("testing labels for test data")
+                print("testing labels for test ubyte")
                 print(session.run(predict_op, feed_dict={X: X_test, p_keep_conv: 1.0, p_keep_hidden: 1.0}))
         print("Final accuracy : {}".format(np.mean(np.argmax(Y_test, axis=1) == session.run(predict_op,feed_dict={X: X_test,p_keep_conv: 1.0,p_keep_hidden: 1.0}))))
 

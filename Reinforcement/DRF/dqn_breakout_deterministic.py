@@ -109,7 +109,7 @@ def train(env, model, target_model, gamma, epslion, final_epsilon, nEpisodes, ba
             replay_memory.append((current_state, action, reward, next_state, dead))
 
             if episode > total_observe_count:
-                deepQlearn(batch_size, gamma)
+                deepQlearn(replay_memory, batch_size, gamma)
 
                 if episode % target_model_change == 0:
                     target_model.set_weights(model.get_weights())
@@ -154,11 +154,11 @@ def epslion_greedy_policy_action(current_state, epslion, episode, total_observe_
         return np.argmax(Q_value[0])
 
 
-def deepQlearn(batch_size, gamma):
+def deepQlearn(replay_memory, batch_size, gamma):
     """
     Deep QLearn
     """
-    current_state_batch, actions, rewards, next_state_batch, dead = get_sample_random_batch_from_replay_memory(batch_size)
+    current_state_batch, actions, rewards, next_state_batch, dead = get_sample_random_batch_from_replay_memory(replay_memory, batch_size)
     actions_mask = np.ones((batch_size, ACTION_SIZE))
     next_Q_values = target_model.predict([next_state_batch, actions_mask])  # separate old model to predict
     targets = np.zeros((batch_size,))

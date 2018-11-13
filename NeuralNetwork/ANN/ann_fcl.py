@@ -184,7 +184,7 @@ class Normalizer(object):
 def correct_ratio(network):
     """
     Desc:
-        计算我们的神经网络的正确率
+        计算神经网络的正确率
     Args:
         network --- 神经网络对象
     Returns:

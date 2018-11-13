@@ -220,7 +220,9 @@ def padding(input_array, zp):
             return padded_array
 
 
-# 对numpy数组进行element wise操作
 def element_wise_op(array, op):
+    '''
+    对numpy数组进行element wise操作
+    '''
     for i in np.nditer(array, op_flags=['readwrite']):
         i[...] = op(i)

@@ -65,6 +65,14 @@ K-Means
 6. use IDE like pycharm to open the project
 
 
+# Cheet Sheet sklearn
+![CheatSheet_sklearn](Images/CheetSheet/CheatSheet_sklearn.png)
+
+
+# Cheet Sheet SAS
+![CheatSheet_sas](Images/CheetSheet/CheatSheet_sas.png)
+
+
 # Reference
 
 https://github.com/apachecn/AiLearning

@@ -11,12 +11,12 @@ import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
 
-class Net(torch.nn.Module):
+class MyNet(torch.nn.Module):
     """
     神经网络
     """
     def __init__(self, n_feature, n_hidden, n_output):
-        super(Net, self).__init__()
+        super(MyNet, self).__init__()
         # 中间层
         self.hidden = torch.nn.Linear(n_feature, n_hidden)
         # 输出层
@@ -46,12 +46,16 @@ def load_data():
 
 
 if __name__ == '__main__':
+    # 加载数据
     x, y = load_data()
-    net = Net(n_feature=1, n_hidden=10, n_output=1)
+
+    # 创建神经网络
+    net = MyNet(n_feature=1, n_hidden=10, n_output=1)
 
     # SGD随机最速下降法
     # lr表示学习率
     optimizer = torch.optim.SGD(net.parameters(), lr=0.5)
+
     # 损失函数，均方误差
     loss_func = torch.nn.MSELoss()
 

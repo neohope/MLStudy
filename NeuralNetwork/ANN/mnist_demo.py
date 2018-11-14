@@ -145,8 +145,8 @@ def get_training_data_set():
     获得训练数据集
     原文为60000的数据集，但训练速度过于缓慢，这里
     """ 
-    image_loader = ImageLoader('../../Data/ANN/ubyte/train-images.idx3-ubyte', 60000)
-    label_loader = LabelLoader('../../Data/ANN/ubyte/train-labels.idx1-ubyte', 60000)
+    image_loader = ImageLoader('../../Data/ANN/Minst/ubyte/train-images.idx3-ubyte', 60000)
+    label_loader = LabelLoader('../../Data/ANN/Minst/ubyte/train-labels.idx1-ubyte', 60000)
     return image_loader.load(), label_loader.load()
 
 

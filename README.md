@@ -30,7 +30,7 @@ K-Means
 
 2. install packages
 
- ```shell
+```shell
     pip install gym
     pip install gym[atari] (linux is better)
     pip install keras
@@ -44,21 +44,21 @@ K-Means
 
 3. install packages to get data
 
- ```shell
+```shell
     pip install bs4
     pip install feedparser
     pip install jieba
     pip install python-votesmart (do not support python3.6)
- ...
+```
 
 4. install pytorch
 
- ```shell
+```shell
     # windows python3.6
     # 工具下载 http://download.pytorch.org/whl/cu90/torch-0.4.1-cp36-cp36m-win_amd64.whl
     pip3 install torch-0.4.1-cp36-cp36m-win_amd64.whl
     pip3 install torchvision
- ...
+```
 
 5. install GraphViz
 
@@ -66,11 +66,11 @@ K-Means
 
 
 # Cheet Sheet sklearn
-![CheatSheet_sklearn](Images/CheetSheet/CheatSheet_sklearn.png)
+![CheatSheet_sklearn](/Images/CheetSheet/CheatSheet_sklearn.png)
 
 
 # Cheet Sheet SAS
-![CheatSheet_sas](Images/CheetSheet/CheatSheet_sas.png)
+![CheatSheet_sas](/Images/CheetSheet/CheatSheet_sas.png)
 
 
 # Reference

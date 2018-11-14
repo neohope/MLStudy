@@ -2,13 +2,13 @@
 # -*- coding:utf-8 -*-
 
 """
-线性单元实现
+线性单元Demo
 """
 
 from Supervised.Regression.LinearUnit import linear_unit
 
 
-def get_training_dataset():
+def get_training_dataset2d():
     """
     Desc:
         构建一个简单的训练数据集
@@ -37,7 +37,7 @@ def train_linear_unit():
     # 创建感知器对象，输入参数的个数也就是特征数为 1（工作年限）
     lu = linear_unit.LinearUnit(1)
     # 获取构建的数据集
-    input_vecs, labels = get_training_dataset()
+    input_vecs, labels = get_training_dataset2d()
     # 训练感知器，迭代 10 轮，学习率为 0.01
     lu.train(input_vecs, labels, 10, 0.01)
     # 返回训练好的线性单元
@@ -55,4 +55,4 @@ if __name__ == '__main__':
     print('Work 1.5 years, monthly salary = %.2f' % lu.predict([1.5]))
     print('Work 6.3 years, monthly salary = %.2f' % lu.predict([6.3]))
 
-    linear_unit.plot(lu, input_vecs, labels)
+    linear_unit.plot2d(lu, input_vecs, labels)

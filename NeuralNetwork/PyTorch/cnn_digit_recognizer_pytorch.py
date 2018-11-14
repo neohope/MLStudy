@@ -30,7 +30,7 @@ class CustomedDataSet(Dataset):
             self.labellist = trainY
         else:
             testX = pd_data
-            testX = testX.as_matrix().reshape(testX.shape[0], 1, 28, 28)
+            testX = testX.values.reshape(testX.shape[0], 1, 28, 28)
             self.datalist = testX
 
     def __getitem__(self, index):
@@ -187,17 +187,18 @@ def plot_with_labels(lowDWeights, labels):
 
 def load_data_pre():
     pd_pre = pd.read_csv('../../Data/PyTorch/DigitRecognizer/test.csv', header=0)
+    pd_pre = pd_pre[:100]
     data_pre = CustomedDataSet(pd_pre, data_type=False)
     loader_pre = DataLoader(dataset=data_pre, batch_size=BATCH_SIZE, shuffle=True)
     return loader_pre
 
 
 def prediction(cnn, loader_pre):
-    for step, (x, y) in enumerate(loader_pre):
-        b_x = Variable(x)  # batch x
+    for step, (x) in enumerate(loader_pre):
+        b_x = Variable(x)
         test_output, _ = cnn(b_x)
         pred_y = torch.max(test_output, 1)[1].data.numpy().squeeze()
-        print(pred_y, 'prediction number')
+        print('prediction number: ', pred_y)
 
     return pred_y
 
@@ -214,8 +215,8 @@ if __name__ == "__main__":
     torch.save(cnn, file_path)
 
     # 保存，加载网络
-    loader_pre = load_data_pre()
     cnn1 = torch.load(file_path)
 
     # 预测数据
-    pre_data = prediction(cnn1)
+    loader_pre = load_data_pre()
+    pre_data = prediction(cnn1, loader_pre)

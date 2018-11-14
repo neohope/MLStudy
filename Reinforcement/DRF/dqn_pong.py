@@ -23,7 +23,7 @@ def init(resume):
     D = 80 * 80  # input dimensionality: 80x80 grid
 
     if resume:
-        model = pickle.load(open('pong.p', 'rb'))
+        model = pickle.load(open('output/pong.p', 'rb'))
     else:
         model = {}
         model['W1'] = np.random.randn(H, D) / np.sqrt(D)
@@ -107,7 +107,7 @@ def train(D, model, grad_buffer, rmsprop_cache, env, gamma, batch_size, learning
             # boring book-keeping
             running_reward = reward_sum if running_reward is None else running_reward * 0.99 + reward_sum * 0.01
             print('resetting env. episode reward total was %f. running mean: %f' % (reward_sum, running_reward))
-            if episode_number % 100 == 0: pickle.dump(model, open('pong.p', 'wb'))
+            if episode_number % 100 == 0: pickle.dump(model, open('output/pong.p', 'wb'))
             reward_sum = 0
             observation = env.reset()  # reset env
             prev_x = None

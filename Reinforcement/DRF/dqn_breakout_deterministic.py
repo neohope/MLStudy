@@ -197,7 +197,7 @@ def save_model(model):
     """
     保存游戏
     """
-    model_name = "BreakoutDeterministic.p"
+    model_name = "output/BreakoutDeterministic.p"
     model.save(model_name)
 
 
@@ -207,7 +207,7 @@ if __name__ == "__main__":
 
     resume = False
     if resume:
-        model = pickle.load(open('BreakoutDeterministic.p', 'rb'))
+        model = pickle.load(open('output/BreakoutDeterministic.p', 'rb'))
     else :
         model = atari_model()
 

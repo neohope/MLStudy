@@ -1,6 +1,8 @@
 # About
 This is just a project of ML demos. Most demos are from here :
+
 https://github.com/apachecn/AiLearning
+
 https://github.com/Madhu009/Deep-math-machine-learning.ai
 
 ## Regression
@@ -49,12 +51,22 @@ K-Means
     pip install python-votesmart (do not support python3.6)
  ...
 
-4. install GraphViz
+4. install pytorch
 
-5. use IDE like pycharm to open the project
+ ```shell
+    # windows python3.6
+    # 工具下载 http://download.pytorch.org/whl/cu90/torch-0.4.1-cp36-cp36m-win_amd64.whl
+    pip3 install torch-0.4.1-cp36-cp36m-win_amd64.whl
+    pip3 install torchvision
+ ...
+
+5. install GraphViz
+
+6. use IDE like pycharm to open the project
 
 
 # Reference
 
 https://github.com/apachecn/AiLearning
+
 https://medium.com/deep-math-machine-learning-ai

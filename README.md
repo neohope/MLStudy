@@ -64,7 +64,7 @@ https://github.com/Madhu009/Deep-math-machine-learning.ai
 - pytorch
 
 
-#How to build
+# How to build
 
 1. install pythoy 3.6+
 

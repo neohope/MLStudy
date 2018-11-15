@@ -5,23 +5,63 @@ https://github.com/apachecn/AiLearning
 
 https://github.com/Madhu009/Deep-math-machine-learning.ai
 
+# Supervised
+
 ## Regression
-LeastSquare
-GradientDescent
-NeuralNetwork
+- least square
+- locally weighted linear regression
+- ridge regression
+- isotonic regression
+- kernel ridge regression
+- support vector regression
+- gradient descent
+- linear unit
+- model tree
+- regression tree
 
 ## Classification
-KNearestNeighbors
-NaiveBayes
-LogisticRegression
-DecisionTree
-SupportVectorMachines
-RandomForest
-AdaBoost
+- adaboost
+- decision tree
+- k nearest neighbors
+- logistic regression
+- naive bayes
+- random forest
+- support vector machines
 
 
+# Unsupervised
 ## Clustering
-K-Means
+- k-means
+- bisecting k-means
+
+## Correlation Analysis
+- apriori
+- frequent patten growth
+
+
+## Dimensionality Reduction
+- principal component analysis
+- singular value decomposition
+
+
+# Reinforcement
+
+## Model Based
+- dynamic programming
+
+## Model Free
+- monte carlo
+- temporal difference
+
+## Deep Reinforcement
+- deep q-learning
+
+# NeuralNetwork
+- ann
+- cnn
+- rnn
+- lstm
+- pytorch
 
 
 #How to build

@@ -105,7 +105,11 @@ https://github.com/Madhu009/Deep-math-machine-learning.ai
 6. use IDE like pycharm to open the project
 
 
-# Cheet Sheet sklearn
+# Algorithms
+![CheatSheet_sklearn](/Images/CheetSheet/Algorithms.png)
+
+
+# Cheet Sheet Sklearn
 ![CheatSheet_sklearn](/Images/CheetSheet/CheatSheet_sklearn.png)
 
 

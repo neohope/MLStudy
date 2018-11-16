@@ -4,6 +4,13 @@ From here :
 http://www.datacamp.com
 
 
+# Course
+
+https://www.coursera.org/learn/machine-learning?
+
+https://www.csie.ntu.edu.tw/~htlin/
+
+
 # Python
 ![sheet_python](/Images/Reference/sheet_python.png)
 

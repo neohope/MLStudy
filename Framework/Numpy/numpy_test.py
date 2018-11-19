@@ -43,3 +43,7 @@ if __name__ == '__main__':
     myEig = la.eig(randMat)
     print('myEig[0]=(%s) \n' % type(myEig[0]), myEig[0])
     print('myEig[1]=(%s) \n' % type(myEig[1]), myEig[1])
+
+    # 矩阵行列式
+    myDet = la.det(randMat)
+    print('myDet=(%s) \n' % type(myDet), myDet)

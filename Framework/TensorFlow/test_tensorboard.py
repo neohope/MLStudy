@@ -47,14 +47,21 @@ def test2():
 
 
 def test3():
+    # scope_a
+    # a=1+2=3
+    # b=a*3=9
     with tf.name_scope("Scope_A"):
         a = tf.add(1, 2, name="A_add")
         b = tf.multiply(a, 3, name="A_mul")
 
+    # scope_b
+    # c=4+5=9
+    # d=c*6=54
     with tf.name_scope("Scope_B"):
         c = tf.add(4, 5, name="B_add")
         d = tf.multiply(c, 6, name="B_mul")
 
+    # e=b+d=63
     e = tf.add(b, d, name="output")
 
     with tf.Session() as sess:

@@ -66,7 +66,7 @@ https://github.com/Madhu009/Deep-math-machine-learning.ai
 
 # How to build
 
-1. install pythoy 3.6+
+1. install python 3.6+
 
 2. install packages
 
